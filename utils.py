@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 def preprocess():
     print("Starting processing data...")
@@ -10,3 +11,8 @@ def preprocess():
     df['horsepower'] = df['horsepower'].astype('float')
     print("Done!")
     return df
+
+def normalize(X):
+    norms = np.linalg.norm(X, axis = 0)
+    means = np.mean(X, axis = 0)
+    return (X-means)/norms

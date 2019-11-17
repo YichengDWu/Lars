@@ -27,7 +27,8 @@ def main():
     
     lar =Lars(feats,args['restrain'])
     lar.fit(X_train, y_train.reshape(-1,1))
-    print("R^2:", lar.score(X_test,y_test))
+    print("R^2 on train set:", lar.score(X_train,y_train))
+    print("R^2 on test set:", lar.score(X_test,y_test))
     if args['lasso_path']:
         lar.plot_path()
     

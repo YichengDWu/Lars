@@ -19,6 +19,7 @@ class Lars:
         self.beta_ma = np.zeros((1, m)).astype('float')
         self.cor_ma = np.zeros((1,m)).astype('float')
         for i in range(m):
+            print(f"Starting step {i}..")
             #2.8
             c = np.dot(X.T, y - mu)
             self.cor_ma = np.concatenate((self.cor_ma, c.reshape(1,-1)), axis = 0)
@@ -55,12 +56,43 @@ class Lars:
             d = w.squeeze()*s
             beta[A] += gamma * d
             self.beta_ma = np.concatenate((self.beta_ma, beta.reshape(1,-1)), axis = 0)
-            print((((y-mu)**2)).sum()/392)
             xb = np.dot(X,beta.reshape(-1,1))
-            print(np.mean((xb-mu)**2))
-            print(beta)
+            self.plot_bar(c, beta)
+        
+        self.plot_path()
     def predict(self,X):
         X = normalize(X)
         beta = self.beta_ma[-1,:]
         pred = np.dot(X, beta.reshape(-1,1))
         return pred+self.y_mean
+    
+    def plot_bar(self, c, beta):
+        fig, axs = plt.subplots(1,2, figsize = (12,4))
+        f1 = sns.barplot(x=['cylinders', 'displacement', 'horsepower', 'weight',
+                       'acceleration', 'model year'],
+                        y=beta.flatten(),palette='rocket',
+                    ax = axs[0])
+        f1.set_xticklabels(axs[0].get_xticklabels(),rotation=60)
+        plt.ylabel('Beta')      
+        
+        f2 = sns.barplot(x=['cylinders', 'displacement', 'horsepower', 'weight',
+                            'acceleration', 'model year'],
+                         y=c.flatten(),palette='rocket',
+                         ax = axs[1])
+        f2.set_xticklabels(axs[1].get_xticklabels(),rotation=60)
+        plt.ylabel('Correlation')      
+        plt.show()
+    
+    def plot_path(self):
+        plt.figure(figsize = (9,6))
+        coefs = self.beta_ma
+        xx = np.repeat(np.arange(coefs.shape[0]),coefs.shape[1]).reshape(coefs.shape[0],coefs.shape[1])
+
+        plt.plot(xx, coefs)
+        ymin, ymax = plt.ylim()
+        plt.xlabel('Step')
+        plt.ylabel('Coefficients')
+        plt.title('LAE Path')
+        plt.gca().legend(['cylinders', 'displacement', 'horsepower', 'weight',
+                            'acceleration', 'model year'])
+        plt.show()

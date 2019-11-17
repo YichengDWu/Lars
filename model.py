@@ -77,7 +77,7 @@ class Lars:
         f1 = sns.barplot(x=self.feats,
                         y=beta.flatten(),palette='rocket',
                     ax = axs[0])
-        f1.set_xticklabels(axs[0].get_xticklabels(),rotation=60)
+        f1.set_xticklabels(axs[0].get_xticklabels(),rotation=45, fontsize = 20)
         plt.ylabel('Beta')      
         
         f2 = sns.barplot(x=self.feats,

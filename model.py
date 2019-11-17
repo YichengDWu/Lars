@@ -77,13 +77,15 @@ class Lars:
         f1 = sns.barplot(x=self.feats,
                         y=beta.flatten(),palette='rocket',
                     ax = axs[0])
-        f1.set_xticklabels(axs[0].get_xticklabels(),rotation=45, fontsize = 8)
+        f1.set_xticklabels(axs[0].get_xticklabels(),rotation=45, fontsize = 16，
+                          labelpad = 12.5)
         plt.ylabel('Beta')      
         
         f2 = sns.barplot(x=self.feats,
                          y=c.flatten(),palette='rocket',
                          ax = axs[1])
-        f2.set_xticklabels(axs[1].get_xticklabels(),rotation=60,fontsize = 8)
+        f2.set_xticklabels(axs[1].get_xticklabels(),rotation=60,fontsize = 16，
+                          )
         plt.ylabel('Correlation') 
         fig.suptitle(f'Step = {i}', fontsize=20)
         plt.show(block = False)

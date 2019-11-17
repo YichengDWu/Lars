@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set(style="darkgrid")
 
-from utils import *
+from utils import normalize, preprocess
 from model import Lars
 
 def main():

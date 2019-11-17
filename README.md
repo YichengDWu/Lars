@@ -5,9 +5,14 @@ This is an python LAR implement, which strictly follows the formulas in [LAR](ht
 # Usage
 `python main.py` for oridinary LAR. 
 
-`python main.py -t 200 -p` for Lasso Modification of LAR.
+`python main.py -t xx -p` for Lasso Modification of LAR.
 
 You can tune the parameter `t`, i.e. the L1 regularization, to get deffirent results.
+
+To reproduce the result 
+`python main.py -t 10000 -p`
+ To do test 
+`python main.py -t 10000 -p -test`
 
 # Performance 
 

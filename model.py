@@ -10,7 +10,7 @@ class Lars:
     2004 paper, "Least Angle Regression," especially the equations on pages 413
     and 414.
     """
-    def __init__(self,feats, t = 1000):
+    def __init__(self,feats, t = np.inf):
         self.feats = feats
         self.t = t
     def fit(self, X, y):
@@ -57,13 +57,35 @@ class Lars:
             else:
                 print("Convergence!")
                 break 
-            #2.12
-            mu += gamma * u
+            
             #3.3
             d = w.squeeze()*s
+            #3.4
+            gamma_j = -beta[A]/d
+            gamma_p = gamma_j[gamma_j>0]
+            if len(gamma_p) > 0:
+                gamma_tilde = min(gamma_p)
+                j = np.where(gamma_p == gamma_tilde)
+            else:
+                gamma_tilde = np.inf
+            if gamma_tilde < gamma:
+                print(f"The {j}th variable was dropped!")
+                A[j] = False
+                s = np.array([1 if c_>0 else -1 for c_ in c[A]])
+                #2.4
+                X_A =  s*X[:,A]
+                #2.5
+                G = np.dot(X_A.T,X_A)
+                G_inverse = np.linalg.inv(G)
+                A_A = np.power(G_inverse.sum(), -0.5)
+                #2.6
+                w = np.sum(A_A * G_inverse, axis = 1, keepdims = True)
+                u = np.dot(X_A, w)
+                 
+            #2.12
+            mu += gamma * u
             beta[A] += gamma * d
             self.beta_ma = np.concatenate((self.beta_ma, beta.reshape(1,-1)), axis = 0)
-            xb = np.dot(X,beta.reshape(-1,1))
             self.plot_bar(i, c, beta)
             print("Active set:", A*1)
             print("Done!")

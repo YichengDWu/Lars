@@ -73,6 +73,7 @@ class Lars:
                 if gamma_tilde < gamma:
                     j = np.where(A==True)[0][j]
                     A[j] = False
+                    print(mu.shape, X[:,j].shape, beta[j])
                     mu -= beta[j]*X[:,j]
                     beta[j]=0.0
                     print(f"The {j}th variable was dropped!")

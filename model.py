@@ -78,7 +78,7 @@ class Lars:
                     j = np.where(A==True)[0][j]
                     print(f"Drop {j}th variable")
                     gamma = gamma_tilde
-                    f = Tru
+                    f = True
             #2.12
             mu += gamma * u
             beta[A] += gamma * d

@@ -15,6 +15,7 @@ def main():
     y = df[['mpg']].values
     lar =Lars(feats)
     lar.fit(X, y.reshape(-1,1))
+    print("R^2:", lar.score(X,y))
     
 if __name__ == '__main__':
     main()

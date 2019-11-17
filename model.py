@@ -71,6 +71,8 @@ class Lars:
                 else:
                     gamma_tilde = np.inf
                 if gamma_tilde < gamma:
+                    j = np.where(A==True)[0][j]
+                    print(f"Drop {j}th variable")
                     gamma = gamma_tilde
             #2.12
             mu += gamma * u

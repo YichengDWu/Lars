@@ -83,7 +83,7 @@ class Lars:
             self.plot_bar(i, c, beta)
             print("Active set:", A*1)
             print("Done!")
-            
+            i += 1
             if sum(abs(beta))>self.t:
                 break
                 print("Restrain statisfied!")

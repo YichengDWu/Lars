@@ -71,7 +71,6 @@ class Lars:
             if sum(abs(beta))>self.t:
                 break
                 print("Restrain statisfied!")
-        self.plot_path()
         
     def predict(self,X):
         X = normalize(X)

@@ -87,7 +87,8 @@ class Lars:
         plt.ylabel('Correlation') 
         plt.title(f'Step = {i}')
         plt.ion()
-    
+        plt.show()
+        
     def plot_path(self):
         plt.figure(figsize = (9,6))
         coefs = self.beta_ma
@@ -100,3 +101,4 @@ class Lars:
         plt.title('LAR Path')
         plt.gca().legend(self.feats)
         plt.ion()
+        plt.show()

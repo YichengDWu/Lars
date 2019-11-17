@@ -1,4 +1,5 @@
 from utils import normalize
+import numpy as np
 
 class Lars:
     """

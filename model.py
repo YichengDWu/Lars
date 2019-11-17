@@ -10,8 +10,9 @@ class Lars:
     2004 paper, "Least Angle Regression," especially the equations on pages 413
     and 414.
     """
-    def __init__(self,feats):
+    def __init__(self,feats, t = 1000):
         self.feats = feats
+        self.t = t
     def fit(self, X, y):
         X = normalize(X)
         self.y_mean = np.mean(y)
@@ -66,7 +67,12 @@ class Lars:
             self.plot_bar(i, c, beta)
             print("Active set:", A*1)
             print("Done!")
+            
+            if sum(abs(beta))>self.t:
+                break
+                print("Restrain statisfied!")
         self.plot_path()
+        
     def predict(self,X):
         X = normalize(X)
         beta = self.beta_ma[-1,:]

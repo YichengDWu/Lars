@@ -73,7 +73,7 @@ class Lars:
         return pred+self.y_mean
     
     def plot_bar(self, i, c, beta):
-        fig, axs = plt.subplots(1,2, figsize = (12,16))
+        fig, axs = plt.subplots(1,2, figsize = (12,4))
         f1 = sns.barplot(x=self.feats,
                         y=beta.flatten(),palette='rocket',
                     ax = axs[0])

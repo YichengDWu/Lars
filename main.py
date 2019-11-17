@@ -9,10 +9,11 @@ from model import Lars
 
 def main():
     df = preprocess()
-    X = df[['cylinders', 'displacement', 'horsepower', 'weight',
-            'acceleration', 'model year']].values
+    feats = ['cylinders', 'displacement', 'horsepower', 'weight',
+                       'acceleration', 'model year']
+    X = df[feats].values
     y = df[['mpg']].values
-    lar =Lars()
+    lar =Lars(feats)
     lar.fit(X, y.reshape(-1,1))
     
 if __name__ == '__main__':

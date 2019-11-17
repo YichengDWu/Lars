@@ -25,7 +25,9 @@ class Lars:
       
         self.beta_ma = np.zeros((1, m)).astype('float')
         self.cor_ma = np.zeros((1,m)).astype('float')
-        for i in range(m):
+        i = 0
+        A = [1]
+        while (A*1).sum()!=m:
             print(f"Starting step {i}...")
             #2.8
             c = np.dot(X.T, y - mu)

@@ -25,7 +25,7 @@ class Lars:
         self.beta_ma = np.zeros((1, m)).astype('float')
         self.cor_ma = np.zeros((1,m)).astype('float')
         for i in range(m):
-            print(f"Starting step {i}..")
+            print(f"Starting step {i}...")
             #2.8
             c = np.dot(X.T, y - mu)
             self.cor_ma = np.concatenate((self.cor_ma, c.reshape(1,-1)), axis = 0)
@@ -64,7 +64,8 @@ class Lars:
             self.beta_ma = np.concatenate((self.beta_ma, beta.reshape(1,-1)), axis = 0)
             xb = np.dot(X,beta.reshape(-1,1))
             self.plot_bar(i, c, beta)
-        
+            print("Active set:", A_A*1)
+            print("Done!")
         self.plot_path()
     def predict(self,X):
         X = normalize(X)

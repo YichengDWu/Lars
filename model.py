@@ -57,7 +57,8 @@ class Lars:
             else:
                 print("Convergence!")
                 break 
-            
+            #3.3
+            d = w.squeeze()*s 
             #Modification
             if self.t!=np.inf:
                 #3.4
@@ -82,8 +83,7 @@ class Lars:
                     #2.6
                     w = np.sum(A_A * G_inverse, axis = 1, keepdims = True)
                     u = np.dot(X_A, w)
-            #3.3
-            d = w.squeeze()*s         
+                    d = w.squeeze()*s       
             #2.12
             mu += gamma * u
             beta[A] += gamma * d

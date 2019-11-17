@@ -63,6 +63,7 @@ class Lars:
             #3.3
             d = w.squeeze()*s 
             #Modification
+            j = -1 #flag
             if self.t!=np.inf:
                 #3.4
                 gamma_j = -beta[A]/d
@@ -74,7 +75,6 @@ class Lars:
                     gamma_tilde = np.inf
                 if gamma_tilde < gamma:
                     j = np.where(A==True)[0][j]
-                    A[j] = False
                     print(f"Drop {j}th variable")
                     gamma = gamma_tilde
             #2.12
@@ -82,7 +82,8 @@ class Lars:
             beta[A] += gamma * d
             self.beta_ma = np.concatenate((self.beta_ma, beta.reshape(1,-1)), axis = 0)
             self.plot_bar(i, c, beta)
-            print("Active set:", A*1)
+            if j != -1:
+                print("Active set:", A*1)
             print("Done!")
             i += 1
             if sum(abs(beta))>self.t:

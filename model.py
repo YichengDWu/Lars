@@ -86,7 +86,7 @@ class Lars:
         f2.set_xticklabels(axs[1].get_xticklabels(),rotation=60)
         plt.ylabel('Correlation') 
         plt.title(f'Step = {i}')
-        plt.show(block=False)
+        plt.draw()
     
     def plot_path(self):
         plt.figure(figsize = (9,6))
@@ -99,4 +99,4 @@ class Lars:
         plt.ylabel('Coefficients')
         plt.title('LAR Path')
         plt.gca().legend(self.feats)
-        plt.show(block=False)
+        plt.draw()

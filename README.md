@@ -12,5 +12,5 @@ You can tune the parameter `t`, i.e. the L1 regularization, to get deffirent res
 # Performance 
 
 | Model | R^2 on train set | R^2 on test set | 
-| LAR   | |   | 
-|LARLasso| | | 
+| LAR   | 0.8 | 0.7 | 
+|LARLasso|0.8 | 0.7 | 

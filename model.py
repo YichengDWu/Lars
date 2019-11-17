@@ -62,7 +62,7 @@ class Lars:
             d = w.squeeze()*s
             
             #Modification
-            if t!=np.inf:
+            if self.t!=np.inf:
                 #3.4
                 gamma_j = -beta[A]/d
                 gamma_p = gamma_j[gamma_j>0]

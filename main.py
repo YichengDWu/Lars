@@ -31,10 +31,13 @@ def main():
         X_train,y_train = X,y
     lar =Lars(feats,args['restrain'])
     lar.fit(X_train, y_train.reshape(-1,1))
-    print("R^2 on train set:", lar.score(X_train,y_train))
+    r2, mse = lar.score(X_train,y_train)
+    print("R^2 on train set:", r2)
+    print("MSE on train set:", mse)
     if args['test']:
-        print("R^2 on test set:", lar.score(X_test,y_test))
-        print(lar.predict(X_test), y_test)
+        r2, mse = lar.score(X_test,y_test)
+        print("R^2 on train set:", r2)
+        print("MSE on train set:", mse)
     if args['lasso_path']:
         lar.plot_path()
     

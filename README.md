@@ -20,7 +20,9 @@ To reproduce the results in lecture “solving regression” page 13-15
 | LAR   | 0.8 | 0.7 |
 | LARLasso | 0.8 | 0.7 | 
 
-| Model | R^2 on train set | R^2 on test set | 
-|---------|--------|--------| 
-| LAR   |  0.808 |  0.07 |
-| LARLasso | 0.8 | 0.7 | 
+| Model | R^2 on train set | R^2 on test set |  MSE on train set | MSE on test set | 
+|---------|--------|--------| --------|--------|
+| LAR   |   0.809 | 0.809 | 11.546 |11.878|
+| LARLasso (t = 100000)| 0.809 | 0.809 | 11.546 |11.878|
+| LARLasso (t = 150)| 0.808 | 0.808 | 11.576 |11.914|
+| LARLasso (t = 120)| 0.803 | 0.807 | 11.890 |11.888|

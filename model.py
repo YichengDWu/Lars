@@ -1,5 +1,8 @@
 from utils import normalize
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set(style="darkgrid")
 
 class Lars:
     """

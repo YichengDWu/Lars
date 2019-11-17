@@ -65,7 +65,7 @@ class Lars:
             gamma_p = gamma_j[gamma_j>0]
             if len(gamma_p) > 0:
                 gamma_tilde = min(gamma_p)
-                j = np.where(gamma_p == gamma_tilde)
+                j = np.where(gamma_p == gamma_tilde).squeeze()
             else:
                 gamma_tilde = np.inf
             if gamma_tilde < gamma:

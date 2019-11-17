@@ -135,6 +135,7 @@ class Lars:
         plt.show(block = False)
         
     def score(self, X, y_true):
+        X = normalize(X)
         y_pred = self.predict(X)
         sse = ((y_true - y_pred) ** 2).sum(axis=0, dtype=np.float64)
         tse = ((y_true - np.average(y_true, axis=0)) ** 2).sum(axis=0, dtype=np.float64)

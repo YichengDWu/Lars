@@ -73,7 +73,9 @@ class Lars:
                 if gamma_tilde < gamma:
                     j = np.where(A==True)[0][j]
                     A[j] = False
-                    #beta[j]=0.0
+                    print(beta)
+                    beta[j]=0.0
+                    print(beta)
                     print(f"The {j}th variable was dropped!")
                     s = np.array([1 if c_>0 else -1 for c_ in c[A]])
                     #2.4

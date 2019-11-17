@@ -10,7 +10,7 @@ from model import Lars
 def main():
     import argparse
     parser = argparse.ArgumentParser('LAR')
-    parser.add_argument('-t', '--restrain', type=float, default=10000,
+    parser.add_argument('-t', '--restrain', type=float, default=np.inf,
                         help='Maximum 1 norm of coefs')
     parser.add_argument('-p', '--lasso_path', action='store_true',
                         help='Coefficient Trajectories')

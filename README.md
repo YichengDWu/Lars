@@ -7,7 +7,7 @@ This is an python LAR implement, which strictly follows the formulas in [LAR](ht
 
 `python main.py -t xx -p` for Lasso Modification of LAR.
 
-You can tune the parameter `t`, i.e. the L1 regularization, to get deffirent results.
+You can tune the parameter `t`, i.e. the L1 regularization, to get different results.
 
 To reproduce the result  
 `python main.py -t 10000 -p`  

@@ -15,7 +15,7 @@ class Lars:
         self.feats = feats
         self.t = t
     def fit(self, X, y):
-        X = normalize(X)
+        X, self.norms, self.means = normalize(X)
         self.y_mean = np.mean(y)
         y = y-self.y_mean
         n = len(y)
@@ -93,7 +93,7 @@ class Lars:
                 print("Restrain statisfied!")
         
     def predict(self,X):
-        X = normalize(X)
+        X = (X-self.means) * self.norms
         beta = self.beta_ma[-1,:]
         pred = np.dot(X, beta.reshape(-1,1))
         return pred+self.y_mean
@@ -130,6 +130,5 @@ class Lars:
         plt.show(block = False)
         
     def score(self, X, y_true):
-        X = normalize(X)
         y_pred = self.predict(X)
         return r2_score(y_true, y_pred), mean_squared_error(y_true, y_pred)

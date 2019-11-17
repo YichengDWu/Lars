@@ -73,7 +73,7 @@ class Lars:
         return pred+self.y_mean
     
     def plot_bar(self, i, c, beta):
-        fig, axs = plt.subplots(1,2, figsize = (12,4))
+        fig, axs = plt.subplots(1,2, figsize = (16,4))
         f1 = sns.barplot(x=self.feats,
                         y=beta.flatten(),palette='rocket',
                     ax = axs[0])
@@ -85,7 +85,7 @@ class Lars:
                          ax = axs[1])
         f2.set_xticklabels(axs[1].get_xticklabels(),rotation=60)
         plt.ylabel('Correlation') 
-        plt.title(f'Step = {i}')
+        fig.suptitle(f'Step = {i}', fontsize=10)
         plt.show(block = False)
         
     def plot_path(self):

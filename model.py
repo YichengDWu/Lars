@@ -109,4 +109,4 @@ class Lars:
         sse = ((y_true - y_pred) ** 2).sum(axis=0, dtype=np.float64)
         tse = ((y_true - np.average(y_true, axis=0)) ** 2).sum(axis=0, dtype=np.float64)
         r2_score = 1 - (sse / tse)
-        return r2_score
+        return r2_score[0]

@@ -4,6 +4,7 @@ This is an python LAR implement, which strictly follows the formulas in [LAR](ht
 
 # Usage
 `python main.py` for oridinary LAR. 
+
 `python main.py -t 200 -p` for Lasso Modification of LAR.
 
-You can tune the parameter `t`, i.e. the L1 regularization to get deffirent results.
+You can tune the parameter `t`, i.e. the L1 regularization, to get deffirent results.

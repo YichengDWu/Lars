@@ -64,7 +64,7 @@ class Lars:
             #3.3
             d = w.squeeze()*s 
             #Modification
-            j = -1 #flag
+            f = False #flag
             if self.t!=np.inf:
                 #3.4
                 gamma_j = -beta[A]/d
@@ -78,14 +78,16 @@ class Lars:
                     j = np.where(A==True)[0][j]
                     print(f"Drop {j}th variable")
                     gamma = gamma_tilde
+                    f = Tru
             #2.12
             mu += gamma * u
             beta[A] += gamma * d
             self.beta_ma = np.concatenate((self.beta_ma, beta.reshape(1,-1)), axis = 0)
             self.plot_bar(i, c, beta)
-            if j != -1:
+            if f:
                 A[j] = False
-                print("Active set:", A*1)
+                f = False
+            print("Active set:", A*1)
             print("Done!")
             i += 1
             if sum(abs(beta))>self.t:
@@ -93,7 +95,7 @@ class Lars:
                 print("Restrain statisfied!")
         
     def predict(self,X):
-        X = (X-self.means) * self.norms
+        X = (X-self.means) / self.norms
         beta = self.beta_ma[-1,:]
         pred = np.dot(X, beta.reshape(-1,1))
         return pred+self.y_mean

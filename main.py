@@ -26,7 +26,7 @@ def main():
     X = df[feats].values
     y = df[['mpg']].values
     if args['test']:
-        X_train, X_test, X_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
     else:
         X_train,y_train = X,y
     lar =Lars(feats,args['restrain'])

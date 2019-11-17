@@ -64,7 +64,7 @@ class Lars:
             self.beta_ma = np.concatenate((self.beta_ma, beta.reshape(1,-1)), axis = 0)
             xb = np.dot(X,beta.reshape(-1,1))
             self.plot_bar(i, c, beta)
-            print("Active set:", A_A*1)
+            print("Active set:", A*1)
             print("Done!")
         self.plot_path()
     def predict(self,X):

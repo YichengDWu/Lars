@@ -9,10 +9,10 @@ This is an python LAR implement, which strictly follows the formulas in [LAR](ht
 
 You can tune the parameter `t`, i.e. the L1 regularization, to get deffirent results.
 
-To reproduce the result 
-`python main.py -t 10000 -p`
- To do test 
-`python main.py -t 10000 -p -test`
+To reproduce the result  
+`python main.py -t 10000 -p`  
+ To do test   
+`python main.py -t 10000 -p -test`  
 
 # Performance 
 

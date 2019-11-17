@@ -86,6 +86,7 @@ class Lars:
         f2.set_xticklabels(axs[1].get_xticklabels(), rotation = 30, fontsize = 10)
         plt.ylabel('Correlation') 
         fig.suptitle(f'Step = {i}', fontsize=20)
+        fig.tight_layout()
         plt.show(block = False)
         
     def plot_path(self):

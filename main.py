@@ -15,6 +15,8 @@ def main():
                         help='Maximum 1 norm of coefs')
     parser.add_argument('-p', '--lasso_path', action='store_true',
                         help='Coefficient Trajectories')
+    parser.add_argument('--test', action='store_true',
+                        help='Whether to do test')
     
     args = parser.parse_args().__dict__
     
@@ -23,12 +25,15 @@ def main():
                        'acceleration', 'model year']
     X = df[feats].values
     y = df[['mpg']].values
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
-    
+    if args['test']:
+        X_train, X_test, X_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+    else:
+        X_train,y_train = X,y
     lar =Lars(feats,args['restrain'])
     lar.fit(X_train, y_train.reshape(-1,1))
     print("R^2 on train set:", lar.score(X_train,y_train))
-    print("R^2 on test set:", lar.score(X_test,y_test))
+    if args['test']:
+        print("R^2 on test set:", lar.score(X_test,y_test))
     if args['lasso_path']:
         lar.plot_path()
     

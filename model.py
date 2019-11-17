@@ -1,3 +1,5 @@
+from utils import normalize
+
 class Lars:
     """
     This implementation is based on Efron, Hastie, Johnstone, and Tibshirani's
@@ -6,6 +8,7 @@ class Lars:
     """
     def __init__(self):
         pass
+    
     def fit(self, X, y):
         X = normalize(X)
         self.y_mean = np.mean(y)

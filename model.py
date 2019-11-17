@@ -10,9 +10,8 @@ class Lars:
     2004 paper, "Least Angle Regression," especially the equations on pages 413
     and 414.
     """
-    def __init__(self):
-        pass
-    
+    def __init__(self,feats):
+        self.feats = feats
     def fit(self, X, y):
         X = normalize(X)
         self.y_mean = np.mean(y)
@@ -75,15 +74,13 @@ class Lars:
     
     def plot_bar(self, c, beta):
         fig, axs = plt.subplots(1,2, figsize = (12,4))
-        f1 = sns.barplot(x=['cylinders', 'displacement', 'horsepower', 'weight',
-                       'acceleration', 'model year'],
+        f1 = sns.barplot(x=self.feats,
                         y=beta.flatten(),palette='rocket',
                     ax = axs[0])
         f1.set_xticklabels(axs[0].get_xticklabels(),rotation=60)
         plt.ylabel('Beta')      
         
-        f2 = sns.barplot(x=['cylinders', 'displacement', 'horsepower', 'weight',
-                            'acceleration', 'model year'],
+        f2 = sns.barplot(x=self.feats,
                          y=c.flatten(),palette='rocket',
                          ax = axs[1])
         f2.set_xticklabels(axs[1].get_xticklabels(),rotation=60)
@@ -99,7 +96,6 @@ class Lars:
         ymin, ymax = plt.ylim()
         plt.xlabel('Step')
         plt.ylabel('Coefficients')
-        plt.title('LAE Path')
-        plt.gca().legend(['cylinders', 'displacement', 'horsepower', 'weight',
-                            'acceleration', 'model year'])
+        plt.title('LAR Path')
+        plt.gca().legend(self.feats)
         plt.show()

@@ -55,8 +55,9 @@ class Lars:
             if len(candicates)!=0:
                 gamma = min(np.append(ne[ne>0], po[po>0]))
             else:
-                print("Convergence!")
-                break 
+                #last stage
+                gamma = C_hat/A_A
+                
             #3.3
             d = w.squeeze()*s 
             #Modification

@@ -71,22 +71,7 @@ class Lars:
                 else:
                     gamma_tilde = np.inf
                 if gamma_tilde < gamma:
-                    j = np.where(A==True)[0][j]
-                    A[j] = False
-                    mu -= beta[j]*X[:,j].reshape(-1,1)
-                    beta[j]=0.0
-                    print(f"The {j}th variable was dropped!")
-                    s = np.array([1 if c_>0 else -1 for c_ in c[A]])
-                    #2.4
-                    X_A =  s*X[:,A]
-                    #2.5
-                    G = np.dot(X_A.T,X_A)
-                    G_inverse = np.linalg.inv(G)
-                    A_A = np.power(G_inverse.sum(), -0.5)
-                    #2.6
-                    w = np.sum(A_A * G_inverse, axis = 1, keepdims = True)
-                    u = np.dot(X_A, w)
-                    d = w.squeeze()*s       
+                    gamma = gamma_tilde
             #2.12
             mu += gamma * u
             beta[A] += gamma * d

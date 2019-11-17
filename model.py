@@ -83,6 +83,7 @@ class Lars:
             self.beta_ma = np.concatenate((self.beta_ma, beta.reshape(1,-1)), axis = 0)
             self.plot_bar(i, c, beta)
             if j != -1:
+                A[j] = False
                 print("Active set:", A*1)
             print("Done!")
             i += 1

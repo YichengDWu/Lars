@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set(style="darkgrid")
+from sklearn.metrics import r2_score, mean_squared_error
 
 class Lars:
     """
@@ -131,7 +132,4 @@ class Lars:
     def score(self, X, y_true):
         X = normalize(X)
         y_pred = self.predict(X)
-        sse = ((y_true - y_pred) ** 2).sum(axis=0, dtype=np.float64)
-        tse = ((y_true - np.average(y_true, axis=0)) ** 2).sum(axis=0, dtype=np.float64)
-        r2_score = 1 - (sse / tse)
-        return r2_score[0]
+        return r2_score(y_true, y_pred), mean_squared_error(y_true, y_pred)

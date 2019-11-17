@@ -72,8 +72,9 @@ class Lars:
                 else:
                     gamma_tilde = np.inf
                 if gamma_tilde < gamma:
-                    print(A)
+                    print(A,A[A])
                     A[A][j] = False
+                    print(A)
                     s = np.array([1 if c_>0 else -1 for c_ in c[A]])
                     #2.4
                     X_A =  s*X[:,A]

@@ -18,4 +18,4 @@ def normalize(X):
     means = np.mean(X, axis = 0)
     X = X - means
     norms = np.linalg.norm(X, axis = 0)
-    return X/norms
+    return X/norms, norms, means

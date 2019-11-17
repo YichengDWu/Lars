@@ -103,3 +103,10 @@ class Lars:
         plt.title('LAR Path')
         plt.gca().legend(self.feats)
         plt.show(block = False)
+        
+    def score(self, X, y_true):
+        y_pred = self.predict(X）
+        sse = ((y_true - y_pred) ** 2).sum(axis=0, dtype=np.float64)
+        tse = ((y_true - np.average(y_true, axis=0, weights=weight)) ** 2).sum(axis=0, dtype=np.float64)
+        r2_score = 1 - (sse / tse)
+        return r2_score

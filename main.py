@@ -34,6 +34,7 @@ def main():
     print("R^2 on train set:", lar.score(X_train,y_train))
     if args['test']:
         print("R^2 on test set:", lar.score(X_test,y_test))
+        print(lar.predict(X_test), y_test)
     if args['lasso_path']:
         lar.plot_path()
     

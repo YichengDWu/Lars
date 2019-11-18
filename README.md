@@ -16,10 +16,6 @@ To reproduce the results in lecture “solving regression” page 13-15
 
 # Performance 
 
-| Model | R^2 on train set | R^2 on test set |
-| LAR   | 0.8 | 0.7 |
-| LARLasso | 0.8 | 0.7 | 
-
 | Model | R^2 on train set | R^2 on test set |  MSE on train set | MSE on test set | 
 |---------|--------|--------| --------|--------|
 | LAR   |   0.809 | 0.809 | 11.546 |11.878|

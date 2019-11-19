@@ -12,7 +12,9 @@ You can tune the parameter `t`, i.e. the L1 regularization, to get different res
 To reproduce the results in lecture “solving regression” page 13-15  
 `python main.py -t 100000 -p`  
  To do test   
-`python main.py -t xx -test`  or `python main.py -test`
+`python main.py -t xx -test`  or
+
+`python main.py -test`
 
 # Performance 
 

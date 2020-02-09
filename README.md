@@ -9,7 +9,7 @@ This is a python version of LAR implement, which strictly follows the formulas i
 
 You can tune the parameter `t`, i.e. the L1 regularization, to get different results.
 
-To reproduce the results in lecture “solving regression” page 13-15  
+To run the example
 `python main.py -t 100000 -p`  
  To do test   
 `python main.py -t xx -test`  or

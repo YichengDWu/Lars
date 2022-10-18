@@ -1,6 +1,6 @@
 # LEAST ANGLE REGRESSION and Modificated LEAST ANGLE REGRESSION
 
-This is a python version of LAR implement, which strictly follows the formulas in [LEAST ANGLE REGRESSION](http://statweb.stanford.edu/~tibs/ftp/lars.pdf), especially from page 413 to 417.
+This is a python version of the LAR method, which strictly follows the formulas in [LEAST ANGLE REGRESSION](http://statweb.stanford.edu/~tibs/ftp/lars.pdf), especially from page 413 to 417.
 
 # Usage
 `python main.py` for oridinary LAR. 
